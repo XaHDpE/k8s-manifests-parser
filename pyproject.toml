@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["k8s_parser"]
+force-include = { "main.py" = "main.py" }
+
+[project]
+name = "k8s-manifests-parser"
+version = "0.1.0"
+description = "Parse Kubernetes/Istio manifests and output network flow interactions"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+k8s-manifests-parser = "main:main"
